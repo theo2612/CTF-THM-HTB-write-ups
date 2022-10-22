@@ -1,12 +1,3 @@
-
-Security
-Insights
-
-    Settings
-
-CTF-THM-write-ups/
-in
-main
 [overthewire/Bandit](https://overthewire.org/wargames/bandit/)
 
 * Bandit0  

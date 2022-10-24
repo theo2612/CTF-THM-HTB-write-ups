@@ -1,5 +1,7 @@
 [overthewire/Bandit](https://overthewire.org/wargames/bandit/)
 
+I feel that OTW/Bandit is one of the best places to learn linux and some basic hacking tactics. You learn how to access files, directory navigation, file searching, basic decryption, decompression, remote access, network scanning, permissions, reverse shell, setuid, cronjobs, basic brute forcing, and the basics of 
+
 Bandit0  
  cat readme -- cat is short for concatenate - Concatenate files and print standard output to the screen  
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1   

@@ -55,9 +55,8 @@ Or
    
    
 ### Bandit6  
- find / -user bandit7 -group bandit6 -size 33c  
-= find(find) on this system (/) a file owner by user bandit7 (-user bandit7) and group bandit6 (-group bandit6) and 33 bytes in size (-ize 33c)  
-=  
+ find / -user bandit7 -group bandit6 -size 33c   
+ find(find) on this system (/) a file owner by user bandit7 (-user bandit7) and group bandit6 (-group bandit6) and 33 bytes in size (-ize 33c)  
    
 Also add 2>/dev/null to filter out all 'Permission denied' off the screen  
    

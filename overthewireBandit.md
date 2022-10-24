@@ -1,25 +1,38 @@
-[overthewire/Bandit](https://overthewire.org/wargames/bandit/)
+# [Overthewire/Bandit Walkthru](https://overthewire.org/wargames/bandit/)
 
-I feel that OTW/Bandit is one of the best places to learn linux and some basic hacking tactics. You learn how to access files, directory navigation, file searching, basic decryption, decompression, remote access, network scanning, permissions, reverse shell, setuid, cronjobs, basic brute forcing, and the basics of 
+I feel that OTW/Bandit is one of the best places to start to learn linux and some basic hacking tactics. You learn
+- accessing files
+- directory navigation
+- file searching
+- basic decryption
+- decompression
+- remote access
+- network scanning
+- permissions
+- reverse shell
+- setuid
+- cronjobs
+- basic brute forcing
+- github basics
 
-Bandit0  
+### Bandit0  
  cat readme -- cat is short for concatenate - Concatenate files and print standard output to the screen  
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1   
    
-Bandit1  
+### Bandit1  
  cat ./-   -- ./ is used to tell the shell to read the dash as text instead of a parameter  
 CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9  
    
-Bandit2  
+### Bandit2  
  cat spaces\ in\ this\ filename -- use ./to read spaces as part of the filename  
 UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK  
    
-Bandit3  
+### Bandit3  
  cd inhere        #opening directory  
  cat .hidden        #print output to screen  
 pIwrPrtPN36QITSp3EQaw936yaFoFgAB  
    
-Bandit4  
+### Bandit4  
  find . -type f | xargs file  
 = find(find) in current directory(.) with file type (type) f(f) and pipe that output into xargs that executes file command  
    
@@ -27,7 +40,7 @@ Also works
  file ./-*  
 koReBOKuIDDepwhWk7jZC0RTdopnAYKh  
    
-Bandit5  
+### Bandit5  
  find . -type f -size 1033c ! -executable | xargs file  
 = find(find) in this directory(.) a file (type) f(f) with the size 1033(1033c) bytes not (!) executable(-) and send input to xargs that executes the file command  
 DXjZPULLxYr17uwoI01bNLQbtFemEgo7  
@@ -41,19 +54,19 @@ Or
  find -size 1033c  
    
    
-Bandit6  
+### Bandit6  
  find / -user bandit7 -group bandit6 -size 33c  
 = find(find) on this system (/) a file owner by user bandit7 (-user bandit7) and group bandit6 (-group bandit6) and 33 bytes in size (-ize 33c)  
 =  
    
 Also add 2>/dev/null to filter out all 'Permission denied' off the screen  
    
-Bandit7  
+### Bandit7  
  strings data.txt | grep millionth  
  = strings(prints strings of printable characters in files) data.txt(the file) | and sends input to grep(prints lines matching a pattern) millionth(the pattern we are looking for.  
 cvX2JJa4CFALtqS87jk27qwqGhBM9plV  
    
-Bandit8  
+### Bandit8  
  sort data.txt | uniq -c  
  = sort(sorts lines of text files) data.txt(the file) | sends input to uniq(finds or omits uniq strings)  
  -c (counts them)  
@@ -64,17 +77,17 @@ Sort data.txt | uniq -u
  -u (find only unique line)  
    
    
-Bandit9  
+### Bandit9  
  strings data.txt | grep "=="  
  = strings(prints strings of printable characters in files) data.txt(the file) | sending input to grep(prints lines matching pattern) "=="  
 truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk  
    
-Bandit10  
+### Bandit10  
  cat data.txt | base64 -d  
  = cat(concatenate/print file) data.txt(file) | send input to base64(base64 encryption) -d(decode)  
 IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR  
    
-Bandit11 - no linux based rot13 cipher  
+### Bandit11 - no linux based rot13 cipher  
  cat data.txt  
 = concatenate data.txt  
 Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh  
@@ -85,7 +98,7 @@ Or script a quick rot13 cypher where for aach a-z it would rotate to n-z then a-
 cat data.txt | tr a-zA-Z n-za-mN-ZA-M  
   
    
-Bandit12 -  
+### Bandit12 -  
  gzip, bzip2, tar, xxd  
  mkdir /tmp/theo  
  cp data.txt /tmp/theo  
@@ -113,7 +126,7 @@ keep unzipping and changing extensions to match what the file uncompresses into
 ends at data8  
 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL  
    
-Bandit 13  
+### Bandit 13  
  use ssh key located on bandit13 to access bandit14 as bandit14 and locate key at  
 **/etc/bandit_pass/bandit14**  
  ssh -i sshkey.private bandit14@localhost  
@@ -121,14 +134,14 @@ Bandit 13
  cat /etc/bandit_pass/bandit14  
 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e  
    
-Bandit14  
+### Bandit14  
 Use password 13-14 on port 30000 on localhost  
  nc localhost 30000  
 =nc(netcat) localhost(host ip) 30000(port)  
  4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e (current level password)  
 BfMYroe26WYalil77FoDi9qh59eK5xNr  
    
-Bandit15  
+### Bandit15  
 Use password 14-15 on port 30001 on locahost using ssl encryption  
  ncat --ssl localhost 30001  
 =ncat(netcat) --ssl(use ssl encryption) localhost(ip address) 30001(port addr)  
@@ -138,7 +151,7 @@ Also works
  openssl(openssl command)  
 cluFn7wTiGryunymYOu4RcffSxQluehd  
    
-Bandit16  
+### Bandit16  
  nmap localhost -p 31000-32000  
 =nmap(invoke nmap) localhost(on this host ip) -p(port scan) 31000-32000(these ports)  
    
@@ -168,13 +181,13 @@ or
  ssh -i key17 bandit17@bandit.labs.overthewire.org -p 2220  
  =ssh(remote login client) -i(identity file) key17(file where rsa key located) bandit17@bandit.labs.overthewire.org(username@ip addr) -p(port) 2220(port #)  
    
-Bandit17  
+### Bandit17  
  diff -y passwords.new passwords.old  
  =diff(command that compares files line by line) -y(output in 2 columns) passwords.new(file1) passwords.old(file2)  
 Or diff passwords.new passwords.old  
 kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd  
    
-Bandit18  
+### Bandit18  
 Exit bandit17  
 Exit bandit16  
  man ssh | grep terminal  
@@ -194,14 +207,14 @@ IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 OR  
  ssh bandit18@localhost /bin/sh  
    
-Bandit19  
+### Bandit19  
  ./bandit20-do --> use this file to run commands as bandit20  
 =set relative path to local directory with ./  
  ./bandit20-do cat /etc/bandit_pass/bandit20  
  =./(set relative path to local directory with)bandit20-do(setuid binary) cat(print to screen) /etc/bandit_pass/bandit20(filename)  
 GbKksEFF4yrVs6il55v6gwY5aVje5f0j  
    
-Bandit20 - [https://www.jonyschats.nl/writeups/bandit-level-20-to-21/](https://www.jonyschats.nl/writeups/bandit-level-20-to-21/)  
+### Bandit20 - [https://www.jonyschats.nl/writeups/bandit-level-20-to-21/](https://www.jonyschats.nl/writeups/bandit-level-20-to-21/)  
 You need 2 ssh sessions open - $ssh bandit20@bandit.labs.overthewire.org -p 2220  
 #1 to nc into a specific port  
 #2 to run ./suconnect on the specific port  
@@ -214,14 +227,14 @@ You need 2 ssh sessions open - $ssh bandit20@bandit.labs.overthewire.org -p 2220
    
 gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr  
    
-Bandit21 -   
+### Bandit21 -   
  cd/etc/cron.d  
  cat cronjob_bandit22  
  cat /usr/bin/cronjob_bandit22.sh  
  cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv  
 Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI  
    
-Bandit22 -  
+### Bandit22 -  
  cd /etc/cron.d  
  cat cronjoib_bandit23  
  cat /usr/bin/cronjob_bandit23.sh  
@@ -246,7 +259,7 @@ echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
      
 jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n  
    
-Bandit23  
+### Bandit23  
 *cronjob runs as bandit24, enumerates through files in /var/spool/bandit24, if the file owner is bandit23 (created by your current user), it will run it*
  mkdir /tmp/theo  
 Make directory /tmp/theo  
@@ -267,7 +280,7 @@ Change permissions of the directory /tmp/theo to 777 (rwx for all)
 Check level24 file for  password  
 UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ  
    
-Bandit 24  
+### Bandit 24  
    
 Create script to  
 Declare bandit24 Password as UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ  
@@ -285,7 +298,7 @@ $ ./brute | nc localhost 30002
    
  uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG  
    
-Bandit 25  
+### Bandit 25  
    
 ssh bandit26@localhost -I bandit26.sshkey  
 Gets us booted upon entry  
@@ -312,7 +325,7 @@ Shrink terminal to 4 lines
  enter  
  now in Bandit26  
    
-Bandit 26  
+### Bandit 26  
    
 Grab bandit27 password from etc with bandit27 setuid  
    
@@ -320,7 +333,7 @@ Grab bandit27 password from etc with bandit27 setuid
    
  3ba3118a22e93127a4ed485be72ef5ea  
    
-Bandit27  
+### Bandit 27  
    
  cd /tmp  
  git clone ssh://bandit27-git@localhost/home/bandit27-git/repo  
@@ -328,7 +341,7 @@ Bandit27
    
  0ef186ac70e04ea33b4c1853d2526fa2  
    
-Bandit28  
+### Bandit28  
    
  git clone ssh://bandit28-git@localhost/home/bandit28-git/repo  
 --> Clone git repo  
@@ -341,7 +354,7 @@ Bandit28
    
  bbc96594b4e001778eee9975372716b2  
    
-Bandit 29  
+### Bandit 29  
    
  git clone ssh://bandit29-git@localhost/home/bandit29-git/repo  
 --> Clone git repo  
@@ -359,7 +372,7 @@ Bandit 29
    
  5b90576bedb2cc04c86a9e924ce42faf  
    
-Bandit 30  
+### Bandit 30  
    
  git clone ssh://bandit30-git@localhost/home/bandit30-git/repo  
 --> Clone git repo  
@@ -372,7 +385,7 @@ Show contents of git tag
    
  47e603bb428404d265f59c42920d81e5  
    
-Bandit 31  
+### Bandit 31  
    
  git clone ssh://bandit31-git@localhost/home/bandit31-git/repo  
 --> Clone git repo  
@@ -391,7 +404,7 @@ Push it into the Origin branch
    
  56a9bf19c63d650ce78e6ec0354ee45e  
    
-Bandit 32  
+### Bandit 32  
    
 Escape the uppercase shell  
  $0  
